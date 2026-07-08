@@ -103,5 +103,51 @@ return [
         'empty_title' => 'No measurements yet',
         'empty_text' => 'Step on the scale and enter your first readings — your body summary will appear here.',
         'add_measurement' => 'Add readings',
+        'last_measured' => 'Last measurement',
+        'per_week' => 'in 7 days',
+        'target' => 'Target',
+        'bmr_estimate' => 'estimated',
+        'weight_chart' => 'Weight, last 30 days',
+        'all_charts' => 'All charts →',
+        'moving_average' => '7-day average',
+    ],
+
+    'metrics' => [
+        'weight_kg' => 'Weight',
+        'fat_percent' => 'Fat',
+        'water_percent' => 'Water',
+        'muscle_percent' => 'Muscle',
+        'bone_kg' => 'Bone',
+        'visceral_fat' => 'Visceral fat',
+        'bmi' => 'BMI',
+        'bmr_kcal' => 'BMR',
+    ],
+
+    'status' => [
+        'low' => 'below normal',
+        'normal' => 'normal',
+        'high' => 'above normal',
+        'very_high' => 'well above normal',
+        'info' => '—',
+    ],
+
+    'bmi' => [
+        'underweight' => 'underweight',
+        'normal' => 'normal',
+        'overweight' => 'overweight',
+        'obese' => 'obese',
+    ],
+
+    'units' => [
+        'kg' => 'kg',
+        'kcal' => 'kcal',
+    ],
+
+    'charts' => [
+        'title' => 'Charts',
+        'days' => 'days',
+        'year' => 'Year',
+        'all' => 'All time',
+        'empty' => 'No data for the selected period.',
     ],
 ];

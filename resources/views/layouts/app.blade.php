@@ -22,7 +22,7 @@
             <nav class="flex items-center gap-1 text-sm overflow-x-auto">
                 <a href="{{ route('dashboard') }}" class="px-3 py-2 rounded-lg whitespace-nowrap {{ request()->routeIs('dashboard') ? 'bg-slate-100 font-medium text-slate-900' : 'text-slate-500 hover:text-slate-900' }}">{{ __('app.nav.dashboard') }}</a>
                 <a href="{{ route('measurements.index') }}" class="px-3 py-2 rounded-lg whitespace-nowrap {{ request()->routeIs('measurements.*') ? 'bg-slate-100 font-medium text-slate-900' : 'text-slate-500 hover:text-slate-900' }}">{{ __('app.nav.history') }}</a>
-                <a href="#" class="px-3 py-2 rounded-lg whitespace-nowrap text-slate-400 cursor-default">{{ __('app.nav.charts') }}</a>
+                <a href="{{ route('charts') }}" class="px-3 py-2 rounded-lg whitespace-nowrap {{ request()->routeIs('charts') ? 'bg-slate-100 font-medium text-slate-900' : 'text-slate-500 hover:text-slate-900' }}">{{ __('app.nav.charts') }}</a>
                 <a href="{{ route('profile.edit') }}" class="px-3 py-2 rounded-lg whitespace-nowrap {{ request()->routeIs('profile.*') ? 'bg-slate-100 font-medium text-slate-900' : 'text-slate-500 hover:text-slate-900' }}">{{ __('app.nav.profile') }}</a>
             </nav>
 
