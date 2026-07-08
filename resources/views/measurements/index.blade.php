@@ -5,9 +5,14 @@
 @section('content')
 <div class="flex items-center justify-between mb-4">
     <h1 class="text-xl font-semibold text-slate-900">{{ __('app.measurements.history_title') }}</h1>
-    <a href="{{ route('measurements.create') }}" class="rounded-lg bg-teal-600 px-4 py-2 text-sm text-white font-medium hover:bg-teal-700">
-        {{ __('app.dashboard.add_measurement') }}
-    </a>
+    <div class="flex gap-2">
+        <a href="{{ route('measurements.export') }}" class="rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-600 font-medium hover:bg-slate-50">
+            {{ __('app.measurements.export') }}
+        </a>
+        <a href="{{ route('measurements.create') }}" class="rounded-lg bg-teal-600 px-4 py-2 text-sm text-white font-medium hover:bg-teal-700">
+            {{ __('app.dashboard.add_measurement') }}
+        </a>
+    </div>
 </div>
 
 @if ($measurements->isEmpty())

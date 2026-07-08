@@ -6,6 +6,7 @@ use App\Models\Measurement;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class MeasurementController extends Controller
 {
@@ -71,6 +72,43 @@ class MeasurementController extends Controller
         $measurement->delete();
 
         return redirect()->route('measurements.index')->with('status', __('app.measurements.deleted'));
+    }
+
+    public function export(Request $request): StreamedResponse
+    {
+        $measurements = $request->user()->measurements()->orderBy('measured_at')->get();
+
+        $columns = [
+            'measured_at' => __('app.measurements.measured_at'),
+            'weight_kg' => __('app.measurements.weight'),
+            'fat_percent' => __('app.measurements.fat_percent'),
+            'water_percent' => __('app.measurements.water_percent'),
+            'muscle_percent' => __('app.measurements.muscle_percent'),
+            'bone_kg' => __('app.measurements.bone_kg'),
+            'visceral_fat' => __('app.measurements.visceral_fat'),
+            'bmi' => __('app.measurements.bmi'),
+            'bmr_kcal' => __('app.measurements.bmr_kcal'),
+        ];
+
+        return response()->streamDownload(function () use ($measurements, $columns) {
+            $out = fopen('php://output', 'w');
+
+            // UTF-8 BOM so Excel detects the encoding
+            fwrite($out, "\xEF\xBB\xBF");
+            fputcsv($out, array_values($columns), ';');
+
+            foreach ($measurements as $m) {
+                $row = [$m->measured_at->format('d.m.Y H:i')];
+                foreach (array_slice(array_keys($columns), 1) as $field) {
+                    $row[] = $m->{$field} !== null ? str_replace('.', ',', (string) $m->{$field}) : '';
+                }
+                fputcsv($out, $row, ';');
+            }
+
+            fclose($out);
+        }, 'bodytrack-' . now()->format('Y-m-d') . '.csv', [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+        ]);
     }
 
     private function validated(Request $request): array

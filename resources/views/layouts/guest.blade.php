@@ -27,7 +27,16 @@
             @yield('content')
         </div>
 
-        <p class="mt-6 text-xs text-slate-400 max-w-md text-center">{{ __('app.disclaimer') }}</p>
+        <div class="mt-4 flex text-xs border border-slate-200 rounded-lg overflow-hidden">
+            @foreach (\App\Http\Middleware\SetLocale::SUPPORTED as $loc)
+                <a href="{{ route('locale.switch', $loc) }}"
+                   class="px-2.5 py-1 {{ app()->getLocale() === $loc ? 'bg-white font-medium text-slate-900' : 'text-slate-400 hover:text-slate-700' }}">
+                    {{ strtoupper($loc) }}
+                </a>
+            @endforeach
+        </div>
+
+        <p class="mt-4 text-xs text-slate-400 max-w-md text-center">{{ __('app.disclaimer') }}</p>
     </div>
 </body>
 </html>

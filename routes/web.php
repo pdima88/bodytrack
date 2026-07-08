@@ -17,7 +17,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(EnsureProfileIsComplete::class)->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
         Route::get('/charts', [\App\Http\Controllers\ChartsController::class, 'index'])->name('charts');
+        Route::get('/measurements/export', [\App\Http\Controllers\MeasurementController::class, 'export'])
+            ->name('measurements.export');
         Route::resource('measurements', \App\Http\Controllers\MeasurementController::class)
             ->except(['show']);
     });
 });
+
+Route::get('/locale/{locale}', [\App\Http\Controllers\LocaleController::class, 'switch'])->name('locale.switch');

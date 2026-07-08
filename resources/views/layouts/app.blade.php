@@ -27,6 +27,14 @@
             </nav>
 
             <div class="flex items-center gap-3 shrink-0">
+                <div class="flex text-xs border border-slate-200 rounded-lg overflow-hidden">
+                    @foreach (\App\Http\Middleware\SetLocale::SUPPORTED as $loc)
+                        <a href="{{ route('locale.switch', $loc) }}"
+                           class="px-2 py-1 {{ app()->getLocale() === $loc ? 'bg-slate-100 font-medium text-slate-900' : 'text-slate-400 hover:text-slate-700' }}">
+                            {{ strtoupper($loc) }}
+                        </a>
+                    @endforeach
+                </div>
                 <span class="text-sm text-slate-500 hidden md:inline">{{ auth()->user()->name }}</span>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

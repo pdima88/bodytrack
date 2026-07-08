@@ -94,6 +94,7 @@ return [
         'updated' => 'Measurement updated.',
         'deleted' => 'Measurement deleted.',
         'empty' => 'No entries yet.',
+        'export' => 'Export CSV',
         'anomaly_warning' => 'Weight :current kg differs a lot from the previous measurement (:previous kg). Check for a typo. If the value is correct, tick the box below and save again.',
         'anomaly_confirm' => 'The value is correct, save as is',
     ],
