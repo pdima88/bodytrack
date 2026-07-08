@@ -64,7 +64,7 @@ class AuthFlowTest extends TestCase
 
     public function test_verified_user_sees_dashboard_in_russian(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->has(\App\Models\Profile::factory())->create();
 
         $this->actingAs($user)
             ->get('/dashboard')

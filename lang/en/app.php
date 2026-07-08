@@ -42,6 +42,26 @@ return [
         'confirm_button' => 'Confirm',
     ],
 
+    'profile' => [
+        'title' => 'Profile',
+        'intro' => 'Sex, age and height are needed to calculate norms and recommendations.',
+        'sex' => 'Sex',
+        'sex_male' => 'Male',
+        'sex_female' => 'Female',
+        'birth_date' => 'Date of birth',
+        'height' => 'Height, cm',
+        'activity' => 'Activity level',
+        'activity_sedentary' => 'Sedentary lifestyle',
+        'activity_light' => 'Light activity (1–3 workouts per week)',
+        'activity_moderate' => 'Moderate activity (3–5 workouts per week)',
+        'activity_high' => 'High activity (6–7 workouts per week)',
+        'activity_athlete' => 'Very high (daily sport, physical job)',
+        'target_weight' => 'Target weight, kg',
+        'optional' => 'optional',
+        'save' => 'Save',
+        'saved' => 'Profile saved.',
+    ],
+
     'dashboard' => [
         'title' => 'Dashboard',
         'empty_title' => 'No measurements yet',
