@@ -22,6 +22,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Profile::class);
     }
 
+    public function measurements(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Measurement::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *

@@ -16,5 +16,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware(EnsureProfileIsComplete::class)->group(function () {
         Route::view('/dashboard', 'dashboard')->name('dashboard');
+        Route::resource('measurements', \App\Http\Controllers\MeasurementController::class)
+            ->except(['show']);
     });
 });
