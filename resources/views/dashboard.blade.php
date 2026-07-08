@@ -83,13 +83,34 @@
         @endif
     </div>
 
-    <div class="bg-white rounded-xl border border-slate-200 p-5">
-        <div class="flex items-center justify-between mb-3">
-            <h2 class="text-sm font-semibold text-slate-900">{{ __('app.dashboard.weight_chart') }}</h2>
-            <a href="{{ route('charts') }}" class="text-sm text-teal-700 hover:underline">{{ __('app.dashboard.all_charts') }}</a>
+    <div class="grid lg:grid-cols-5 gap-4">
+        <div class="lg:col-span-3 bg-white rounded-xl border border-slate-200 p-5">
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-sm font-semibold text-slate-900">{{ __('app.dashboard.weight_chart') }}</h2>
+                <a href="{{ route('charts') }}" class="text-sm text-teal-700 hover:underline">{{ __('app.dashboard.all_charts') }}</a>
+            </div>
+            <div class="relative h-64">
+                <canvas id="weight-chart"></canvas>
+            </div>
         </div>
-        <div class="relative h-64">
-            <canvas id="weight-chart"></canvas>
+
+        <div class="lg:col-span-2 bg-white rounded-xl border border-slate-200 p-5">
+            <h2 class="text-sm font-semibold text-slate-900 mb-3">{{ __('app.dashboard.recommendations') }}</h2>
+            <ul class="space-y-3">
+                @foreach ($recommendations as $rec)
+                    @php
+                        $dot = match ($rec['severity']) {
+                            'good' => 'bg-teal-500',
+                            'warning' => 'bg-amber-500',
+                            default => 'bg-slate-300',
+                        };
+                    @endphp
+                    <li class="flex gap-2.5 text-sm text-slate-600 leading-relaxed">
+                        <span class="mt-1.5 w-2 h-2 rounded-full shrink-0 {{ $dot }}"></span>
+                        <span>{{ __('app.recommendations.' . $rec['key'], $rec['params']) }}</span>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 @endif

@@ -110,6 +110,7 @@ return [
         'weight_chart' => 'Weight, last 30 days',
         'all_charts' => 'All charts →',
         'moving_average' => '7-day average',
+        'recommendations' => 'Recommendations',
     ],
 
     'metrics' => [
@@ -141,6 +142,22 @@ return [
     'units' => [
         'kg' => 'kg',
         'kcal' => 'kcal',
+    ],
+
+    'recommendations' => [
+        'all_good' => 'All readings are within normal ranges and the pace of change is safe. Keep it up and weigh in regularly.',
+        'losing_too_fast' => 'You are losing more than 1% of body weight per week (−:pace kg/week). That pace risks muscle loss: raise calories slightly and keep protein high.',
+        'losing_good_pace' => 'Great pace of weight loss: −:pace kg per week — safe and sustainable. Keep going!',
+        'gaining_but_target_lower' => 'Weight is going up although your goal is to lose. Your estimated daily expenditure is ~:tdee kcal: try keeping intake around :intake kcal (a moderate deficit).',
+        'target_forecast' => ':remaining kg left to your target. At the current pace you will reach it around :date.',
+        'underweight' => 'Your BMI is below normal. Gain weight gradually: aim for about :intake kcal per day with enough protein. See a doctor if underweight persists.',
+        'fat_high' => 'Body fat is above the normal range (up to :max %). A moderate calorie deficit (≈:intake kcal/day), ~:protein g of protein daily and 2–3 strength sessions a week will help.',
+        'fat_falling' => 'Body fat dropped by :delta pp over the last month — you are moving in the right direction.',
+        'muscle_low' => 'Muscle mass is below normal or falling along with weight. Add strength training and protein (1.6–2 g per kg of body weight) so you lose fat, not muscle.',
+        'water_low' => 'Body water is below normal. Aim for roughly :liters L of fluids per day; alcohol and excess coffee worsen dehydration.',
+        'visceral_high' => 'Visceral fat is elevated (10–14). Regular cardio 150+ minutes per week, less sugar and alcohol, and good sleep bring it down best.',
+        'visceral_very_high' => 'Visceral fat is very high (15+). This is a risk factor for heart and metabolic health — discuss it with a doctor and add regular activity.',
+        'measure_regularly' => 'Your last weigh-in was more than a week ago. Weigh 2–3 times a week, in the morning before eating, for more accurate statistics.',
     ],
 
     'charts' => [

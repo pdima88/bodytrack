@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Services\BodyNorms;
+use App\Services\RecommendationEngine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function __construct(private readonly BodyNorms $norms)
-    {
+    public function __construct(
+        private readonly BodyNorms $norms,
+        private readonly RecommendationEngine $engine,
+    ) {
     }
 
     public function index(Request $request): View
@@ -35,6 +38,7 @@ class DashboardController extends Controller
             'metrics' => $this->norms->evaluate($profile, $latest),
             'weekDeltas' => $this->weekDeltas($user->measurements()->orderBy('measured_at')->get(), $latest),
             'chart' => $this->weightChart($history, $profile->target_weight_kg),
+            'recommendations' => $this->engine->recommend($profile, $history),
         ]);
     }
 
