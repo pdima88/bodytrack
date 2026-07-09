@@ -47,9 +47,9 @@
                     'water_percent' => ['step' => '0.1', 'min' => 20, 'max' => 85],
                     'muscle_percent' => ['step' => '0.1', 'min' => 10, 'max' => 75],
                     'bone_percent' => ['step' => '0.1', 'min' => 1, 'max' => 15],
+                    'bmr_kcal' => ['step' => '1', 'min' => 500, 'max' => 5000],
                     'visceral_fat' => ['step' => '1', 'min' => 1, 'max' => 59],
                     'bmi' => ['step' => '0.1', 'min' => 8, 'max' => 80],
-                    'bmr_kcal' => ['step' => '1', 'min' => 500, 'max' => 5000],
                 ] as $field => $attrs)
                     <div>
                         <label for="{{ $field }}" class="flex items-center gap-1.5 text-sm font-medium mb-1"><x-metric-icon :name="$field" class="w-4 h-4 text-teal-600"/>{{ __('app.measurements.' . $field) }}</label>
