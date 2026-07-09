@@ -31,7 +31,7 @@
             </div>
 
             <div>
-                <label for="weight_kg" class="flex items-center gap-1.5 text-sm font-medium mb-1"><x-metric-icon name="weight_kg" class="w-4 h-4 text-teal-600"/>{{ __('app.measurements.weight') }}</label>
+                <label for="weight_kg" class="flex items-center gap-1.5 text-sm font-medium mb-1"><x-metric-icon name="weight_kg" class="text-teal-600"/>{{ __('app.measurements.weight') }}</label>
                 <input id="weight_kg" type="number" name="weight_kg" step="0.1" min="10" max="180" required autofocus
                        value="{{ old('weight_kg', $measurement?->weight_kg) }}"
                        @if($last) placeholder="{{ __('app.measurements.last_value') }}: {{ number_format($last->weight_kg, 1, ',', ' ') }}" @endif
@@ -52,7 +52,7 @@
                     'bmi' => ['step' => '0.1', 'min' => 8, 'max' => 80],
                 ] as $field => $attrs)
                     <div>
-                        <label for="{{ $field }}" class="flex items-center gap-1.5 text-sm font-medium mb-1"><x-metric-icon :name="$field" class="w-4 h-4 text-teal-600"/>{{ __('app.measurements.' . $field) }}</label>
+                        <label for="{{ $field }}" class="flex items-center gap-1.5 text-sm font-medium mb-1"><x-metric-icon :name="$field" class="text-teal-600"/>{{ __('app.measurements.' . $field) }}</label>
                         <input id="{{ $field }}" type="number" name="{{ $field }}"
                                step="{{ $attrs['step'] }}" min="{{ $attrs['min'] }}" max="{{ $attrs['max'] }}"
                                value="{{ old($field, $measurement?->{$field}) }}"
