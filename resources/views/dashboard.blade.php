@@ -21,7 +21,7 @@
         };
         $fmt = fn ($v, $dec = 1) => number_format($v, $dec, ',', ' ');
         $infoButton = fn (string $key) => '<button type="button" onclick="document.getElementById(\'info-' . $key . '\').showModal()"'
-            . ' class="w-5 h-5 shrink-0 rounded-full border border-slate-200 text-[11px] leading-none text-slate-400 hover:text-teal-700 hover:border-teal-300 flex items-center justify-center"'
+            . ' class="absolute top-3 right-3 w-5 h-5 rounded-full border border-slate-200 text-[11px] leading-none text-slate-400 hover:text-teal-700 hover:border-teal-300 flex items-center justify-center"'
             . ' aria-label="' . e(__('app.metric_info.about')) . '">?</button>';
     @endphp
 
@@ -36,11 +36,9 @@
     </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-        <div class="bg-white rounded-xl border border-slate-200 p-4">
-            <div class="flex items-start justify-between gap-2">
-                <p class="text-xs text-slate-500 flex items-center gap-1.5"><x-metric-icon name="weight_kg" class="text-teal-600"/>{{ __('app.measurements.weight_short') }}</p>
-                {!! $infoButton('weight_kg') !!}
-            </div>
+        <div class="relative bg-white rounded-xl border border-slate-200 p-4">
+            {!! $infoButton('weight_kg') !!}
+            <p class="text-xs text-slate-500 flex items-center gap-1.5 pr-6"><x-metric-icon name="weight_kg" class="text-teal-600"/>{{ __('app.measurements.weight_short') }}</p>
             <p class="text-2xl font-semibold text-slate-900 mt-0.5">{{ $fmt($latest->weight_kg) }} <span class="text-sm font-normal text-slate-400">{{ __('app.units.kg') }}</span></p>
             @if (isset($weekDeltas['weight_kg']))
                 <p class="text-xs mt-1 {{ $weekDeltas['weight_kg'] <= 0 ? 'text-teal-600' : 'text-amber-600' }}">
@@ -54,11 +52,9 @@
         @foreach (['fat_percent', 'water_percent', 'muscle_percent', 'bone_percent', 'visceral_fat', 'bmi'] as $metric)
             @if (isset($metrics[$metric]))
                 @php $data = $metrics[$metric]; @endphp
-                <div class="bg-white rounded-xl border border-slate-200 p-4">
-                    <div class="flex items-start justify-between gap-2">
-                        <p class="text-xs text-slate-500 flex items-center gap-1.5"><x-metric-icon :name="$metric" class="text-teal-600"/>{{ __('app.metrics.' . $metric) }}</p>
-                        {!! $infoButton($metric) !!}
-                    </div>
+                <div class="relative bg-white rounded-xl border border-slate-200 p-4">
+                    {!! $infoButton($metric) !!}
+                    <p class="text-xs text-slate-500 flex items-center gap-1.5 pr-6"><x-metric-icon :name="$metric" class="text-teal-600"/>{{ __('app.metrics.' . $metric) }}</p>
                     <p class="text-2xl font-semibold text-slate-900 mt-0.5">
                         {{ $fmt($data['value'], $metric === 'visceral_fat' ? 0 : 1) }}
                         @if (str_ends_with($metric, '_percent'))
@@ -82,11 +78,9 @@
         @endforeach
 
         @if (isset($metrics['bmr_kcal']))
-            <div class="bg-white rounded-xl border border-slate-200 p-4">
-                <div class="flex items-start justify-between gap-2">
-                    <p class="text-xs text-slate-500 flex items-center gap-1.5"><x-metric-icon name="bmr_kcal" class="text-teal-600"/>{{ __('app.metrics.bmr_kcal') }}</p>
-                    {!! $infoButton('bmr_kcal') !!}
-                </div>
+            <div class="relative bg-white rounded-xl border border-slate-200 p-4">
+                {!! $infoButton('bmr_kcal') !!}
+                <p class="text-xs text-slate-500 flex items-center gap-1.5 pr-6"><x-metric-icon name="bmr_kcal" class="text-teal-600"/>{{ __('app.metrics.bmr_kcal') }}</p>
                 <p class="text-2xl font-semibold text-slate-900 mt-0.5">{{ $metrics['bmr_kcal']['value'] }} <span class="text-sm font-normal text-slate-400">{{ __('app.units.kcal') }}</span></p>
                 <p class="text-xs mt-1 text-slate-400">{{ __('app.dashboard.bmr_estimate') }}: ~{{ $metrics['bmr_kcal']['range'][0] }}</p>
             </div>
