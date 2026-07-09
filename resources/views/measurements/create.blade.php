@@ -31,7 +31,7 @@
             </div>
 
             <div>
-                <label for="weight_kg" class="block text-sm font-medium mb-1">{{ __('app.measurements.weight') }}</label>
+                <label for="weight_kg" class="flex items-center gap-1.5 text-sm font-medium mb-1"><x-metric-icon name="weight_kg" class="w-4 h-4 text-teal-600"/>{{ __('app.measurements.weight') }}</label>
                 <input id="weight_kg" type="number" name="weight_kg" step="0.1" min="10" max="180" required autofocus
                        value="{{ old('weight_kg', $measurement?->weight_kg) }}"
                        @if($last) placeholder="{{ __('app.measurements.last_value') }}: {{ number_format($last->weight_kg, 1, ',', ' ') }}" @endif
@@ -46,13 +46,13 @@
                     'fat_percent' => ['step' => '0.1', 'min' => 3, 'max' => 75],
                     'water_percent' => ['step' => '0.1', 'min' => 20, 'max' => 85],
                     'muscle_percent' => ['step' => '0.1', 'min' => 10, 'max' => 75],
-                    'bone_kg' => ['step' => '0.1', 'min' => 0.5, 'max' => 10],
+                    'bone_percent' => ['step' => '0.1', 'min' => 1, 'max' => 15],
                     'visceral_fat' => ['step' => '1', 'min' => 1, 'max' => 59],
                     'bmi' => ['step' => '0.1', 'min' => 8, 'max' => 80],
                     'bmr_kcal' => ['step' => '1', 'min' => 500, 'max' => 5000],
                 ] as $field => $attrs)
                     <div>
-                        <label for="{{ $field }}" class="block text-sm font-medium mb-1">{{ __('app.measurements.' . $field) }}</label>
+                        <label for="{{ $field }}" class="flex items-center gap-1.5 text-sm font-medium mb-1"><x-metric-icon :name="$field" class="w-4 h-4 text-teal-600"/>{{ __('app.measurements.' . $field) }}</label>
                         <input id="{{ $field }}" type="number" name="{{ $field }}"
                                step="{{ $attrs['step'] }}" min="{{ $attrs['min'] }}" max="{{ $attrs['max'] }}"
                                value="{{ old($field, $measurement?->{$field}) }}"

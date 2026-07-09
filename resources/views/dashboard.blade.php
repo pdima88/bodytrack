@@ -34,7 +34,7 @@
 
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         <div class="bg-white rounded-xl border border-slate-200 p-4">
-            <p class="text-xs text-slate-500">{{ __('app.measurements.weight_short') }}</p>
+            <p class="text-xs text-slate-500 flex items-center gap-1.5"><x-metric-icon name="weight_kg" class="w-4 h-4 text-teal-600"/>{{ __('app.measurements.weight_short') }}</p>
             <p class="text-2xl font-semibold text-slate-900 mt-0.5">{{ $fmt($latest->weight_kg) }} <span class="text-sm font-normal text-slate-400">{{ __('app.units.kg') }}</span></p>
             @if (isset($weekDeltas['weight_kg']))
                 <p class="text-xs mt-1 {{ $weekDeltas['weight_kg'] <= 0 ? 'text-teal-600' : 'text-amber-600' }}">
@@ -45,17 +45,15 @@
             @endif
         </div>
 
-        @foreach (['fat_percent', 'water_percent', 'muscle_percent', 'bone_kg', 'visceral_fat', 'bmi'] as $metric)
+        @foreach (['fat_percent', 'water_percent', 'muscle_percent', 'bone_percent', 'visceral_fat', 'bmi'] as $metric)
             @if (isset($metrics[$metric]))
                 @php $data = $metrics[$metric]; @endphp
                 <div class="bg-white rounded-xl border border-slate-200 p-4">
-                    <p class="text-xs text-slate-500">{{ __('app.metrics.' . $metric) }}</p>
+                    <p class="text-xs text-slate-500 flex items-center gap-1.5"><x-metric-icon :name="$metric" class="w-4 h-4 text-teal-600"/>{{ __('app.metrics.' . $metric) }}</p>
                     <p class="text-2xl font-semibold text-slate-900 mt-0.5">
                         {{ $fmt($data['value'], $metric === 'visceral_fat' ? 0 : 1) }}
                         @if (str_ends_with($metric, '_percent'))
                             <span class="text-sm font-normal text-slate-400">%</span>
-                        @elseif ($metric === 'bone_kg')
-                            <span class="text-sm font-normal text-slate-400">{{ __('app.units.kg') }}</span>
                         @endif
                     </p>
                     <div class="flex items-center gap-2 mt-1">
@@ -76,7 +74,7 @@
 
         @if (isset($metrics['bmr_kcal']))
             <div class="bg-white rounded-xl border border-slate-200 p-4">
-                <p class="text-xs text-slate-500">{{ __('app.metrics.bmr_kcal') }}</p>
+                <p class="text-xs text-slate-500 flex items-center gap-1.5"><x-metric-icon name="bmr_kcal" class="w-4 h-4 text-teal-600"/>{{ __('app.metrics.bmr_kcal') }}</p>
                 <p class="text-2xl font-semibold text-slate-900 mt-0.5">{{ $metrics['bmr_kcal']['value'] }} <span class="text-sm font-normal text-slate-400">{{ __('app.units.kcal') }}</span></p>
                 <p class="text-xs mt-1 text-slate-400">{{ __('app.dashboard.bmr_estimate') }}: ~{{ $metrics['bmr_kcal']['range'][0] }}</p>
             </div>

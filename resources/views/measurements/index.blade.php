@@ -44,7 +44,7 @@
                         <td class="px-3 py-2.5 text-right">{{ $m->fat_percent !== null ? number_format($m->fat_percent, 1, ',', ' ') : '—' }}</td>
                         <td class="px-3 py-2.5 text-right">{{ $m->water_percent !== null ? number_format($m->water_percent, 1, ',', ' ') : '—' }}</td>
                         <td class="px-3 py-2.5 text-right">{{ $m->muscle_percent !== null ? number_format($m->muscle_percent, 1, ',', ' ') : '—' }}</td>
-                        <td class="px-3 py-2.5 text-right">{{ $m->bone_kg !== null ? number_format($m->bone_kg, 1, ',', ' ') : '—' }}</td>
+                        <td class="px-3 py-2.5 text-right">{{ $m->bone_percent !== null ? number_format($m->bone_percent, 1, ',', ' ') : '—' }}</td>
                         <td class="px-3 py-2.5 text-right">{{ $m->visceral_fat ?? '—' }}</td>
                         <td class="px-3 py-2.5 text-right">{{ $m->bmi !== null ? number_format($m->bmi, 1, ',', ' ') : '—' }}</td>
                         <td class="px-3 py-2.5 text-right">{{ $m->bmr_kcal ?? '—' }}</td>

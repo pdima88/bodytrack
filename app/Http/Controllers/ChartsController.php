@@ -14,7 +14,7 @@ class ChartsController extends Controller
         'fat_percent',
         'water_percent',
         'muscle_percent',
-        'bone_kg',
+        'bone_percent',
         'visceral_fat',
         'bmi',
         'bmr_kcal',

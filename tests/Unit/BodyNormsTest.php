@@ -64,7 +64,7 @@ class BodyNormsTest extends TestCase
         $m->fat_percent = 24.8;
         $m->water_percent = 51.2;
         $m->muscle_percent = 33.1;
-        $m->bone_kg = 3.2;
+        $m->bone_percent = 3.9;
         $m->visceral_fat = 11;
         $m->bmi = 26.1;
         $m->bmr_kcal = 1740;
@@ -75,7 +75,7 @@ class BodyNormsTest extends TestCase
         $this->assertSame(BodyNorms::STATUS_HIGH, $result['fat_percent']['status']);
         $this->assertSame(BodyNorms::STATUS_NORMAL, $result['water_percent']['status']);
         $this->assertSame(BodyNorms::STATUS_LOW, $result['muscle_percent']['status']);
-        $this->assertSame(BodyNorms::STATUS_NORMAL, $result['bone_kg']['status']);
+        $this->assertSame(BodyNorms::STATUS_NORMAL, $result['bone_percent']['status']);
         $this->assertSame(BodyNorms::STATUS_HIGH, $result['visceral_fat']['status']);
         $this->assertSame(BodyNorms::STATUS_INFO, $result['bmr_kcal']['status']);
     }

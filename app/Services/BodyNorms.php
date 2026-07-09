@@ -62,11 +62,11 @@ class BodyNorms
             ];
         }
 
-        if ($m->bone_kg !== null) {
-            $reference = $this->boneReference($profile->sex, $m->weight_kg);
-            $result['bone_kg'] = [
-                'value' => $m->bone_kg,
-                'status' => $this->statusFromRange($m->bone_kg, $reference * 0.8, $reference * 1.2),
+        if ($m->bone_percent !== null) {
+            $reference = round($this->boneReference($profile->sex, $m->weight_kg) / $m->weight_kg * 100, 1);
+            $result['bone_percent'] = [
+                'value' => $m->bone_percent,
+                'status' => $this->statusFromRange($m->bone_percent, round($reference * 0.8, 1), round($reference * 1.2, 1)),
                 'range' => [round($reference * 0.8, 1), round($reference * 1.2, 1)],
             ];
         }

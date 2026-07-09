@@ -20,7 +20,7 @@ class MeasurementFactory extends Factory
             'fat_percent' => fake()->randomFloat(1, 12, 35),
             'water_percent' => fake()->randomFloat(1, 45, 65),
             'muscle_percent' => fake()->randomFloat(1, 25, 45),
-            'bone_kg' => fake()->randomFloat(1, 2, 4),
+            'bone_percent' => fake()->randomFloat(1, 3, 5),
             'visceral_fat' => fake()->numberBetween(3, 15),
             'bmi' => round($weight / (1.78 ** 2), 1),
             'bmr_kcal' => fake()->numberBetween(1300, 2200),

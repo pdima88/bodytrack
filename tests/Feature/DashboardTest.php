@@ -29,7 +29,7 @@ class DashboardTest extends TestCase
             'fat_percent' => 24.8,
             'water_percent' => 51.2,
             'muscle_percent' => 33.1,
-            'bone_kg' => 3.2,
+            'bone_percent' => 3.9,
             'visceral_fat' => 11,
             'bmi' => 26.1,
             'bmr_kcal' => 1740,
