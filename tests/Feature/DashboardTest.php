@@ -40,7 +40,8 @@ class DashboardTest extends TestCase
             ->assertSee('82,4')
             ->assertSee('выше нормы')
             ->assertSee('норма')
-            ->assertSee('избыточный вес');
+            ->assertSee('избыточный вес')
+            ->assertSee('Индекс массы тела');
     }
 
     public function test_dashboard_shows_week_delta(): void

@@ -125,6 +125,19 @@ return [
         'bmr_kcal' => 'BMR',
     ],
 
+    'metric_info' => [
+        'about' => 'What this metric means',
+        'close' => 'Close',
+        'weight_kg' => 'Total body mass. Day-to-day weight fluctuates by 1–2 kg because of water and stomach contents, so the weekly and monthly trend matters more than any single reading. Weigh at the same time of day, ideally in the morning before eating.',
+        'fat_percent' => 'Share of fat tissue in body mass. The scale estimates it via bioelectrical impedance (BIA) — the electrical resistance of tissues. Fat stores energy and takes part in hormonal balance: both excess and severe shortage are harmful. The normal range depends on sex and age.',
+        'water_percent' => 'Share of water in the body. Low hydration worsens wellbeing and metabolism and also skews the other BIA readings. Drinking, food, alcohol, coffee and workouts all affect it.',
+        'muscle_percent' => 'Share of muscle tissue. Muscle burns calories even at rest and supports joints and posture. When losing weight, make sure it comes from fat: if muscle % drops along with weight, add protein and strength training.',
+        'bone_percent' => 'Share of bone tissue in body mass. Real bone mass changes very slowly and the scale estimate is approximate: sudden jumps usually reflect changes in total weight and hydration, not bones.',
+        'visceral_fat' => 'A rating of fat around the internal organs on a 1–59 scale: up to 9 is normal, 10–14 elevated, 15 and above high. Visceral fat is riskier than subcutaneous fat — it is linked to heart and metabolic risks. Cardio and a moderate calorie deficit bring it down best.',
+        'bmi' => 'Body mass index: weight (kg) divided by height (m) squared. WHO classification: under 18.5 — underweight, 18.5–25 — normal, 25–30 — overweight, 30+ — obese. BMI ignores body composition: muscular people can score high with low body fat.',
+        'bmr_kcal' => 'Basal metabolic rate — how many kilocalories the body burns per day at complete rest. Your full daily expenditure is higher: multiply by an activity factor (from ~1.2 sedentary to ~1.9 athletes). The estimate shown next to it uses the Mifflin-St Jeor formula as a cross-check.',
+    ],
+
     'status' => [
         'low' => 'below normal',
         'normal' => 'normal',
