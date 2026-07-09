@@ -7,7 +7,7 @@
     <h1 class="text-xl font-semibold text-slate-900">{{ __('app.charts.title') }}</h1>
     <div class="flex gap-1 text-sm">
         @foreach ([7 => '7 ' . __('app.charts.days'), 30 => '30 ' . __('app.charts.days'), 90 => '90 ' . __('app.charts.days'), 365 => __('app.charts.year'), 0 => __('app.charts.all')] as $p => $label)
-            <a href="{{ route('charts', ['period' => $p]) }}"
+            <a href="{{ route('charts', ['period' => $p]) }}" data-loader
                class="px-3 py-1.5 rounded-lg {{ $period === $p ? 'bg-teal-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50' }}">
                 {{ $label }}
             </a>
