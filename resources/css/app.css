@@ -35,3 +35,25 @@
         transform: rotate(360deg);
     }
 }
+
+/* Full-page overlay shown by ui.js while navigating via data-loader links. */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(248 250 252 / 0.65);
+    backdrop-filter: blur(2px);
+}
+
+.page-loader::after {
+    content: '';
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 3px solid #0d9488;
+    border-top-color: transparent;
+    border-radius: 9999px;
+    animation: ui-spin 0.7s linear infinite;
+}

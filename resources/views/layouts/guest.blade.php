@@ -30,7 +30,7 @@
 
         <div class="mt-4 flex text-xs border border-slate-200 rounded-lg overflow-hidden">
             @foreach (\App\Http\Middleware\SetLocale::SUPPORTED as $loc)
-                <a href="{{ route('locale.switch', $loc) }}"
+                <a href="{{ route('locale.switch', $loc) }}" data-loader
                    class="px-2.5 py-1 {{ app()->getLocale() === $loc ? 'bg-white font-medium text-slate-900' : 'text-slate-400 hover:text-slate-700' }}">
                     {{ strtoupper($loc) }}
                 </a>
