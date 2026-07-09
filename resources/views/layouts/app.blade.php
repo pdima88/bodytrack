@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', config('app.name'))</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/ui.js') }}" defer></script>
     @stack('head')
 </head>
 <body class="min-h-screen bg-slate-100 text-slate-800 antialiased">

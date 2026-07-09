@@ -9,7 +9,7 @@
         <a href="{{ route('measurements.export') }}" class="rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-600 font-medium hover:bg-slate-50">
             {{ __('app.measurements.export') }}
         </a>
-        <a href="{{ route('measurements.create') }}" class="rounded-lg bg-teal-600 px-4 py-2 text-sm text-white font-medium hover:bg-teal-700">
+        <a href="{{ route('measurements.create') }}" data-loader class="rounded-lg bg-teal-600 px-4 py-2 text-sm text-white font-medium hover:bg-teal-700">
             {{ __('app.dashboard.add_measurement') }}
         </a>
     </div>
